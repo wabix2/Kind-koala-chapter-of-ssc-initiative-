@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kind Koala | Ethiopia Chapter of SSC</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0f3d2e;
+      --secondary: #2d6a4f;
+      --accent: #d4a373;
+      --bg-surface: #ffffff;
+      --bg-alt: #f1f5f3;
+      --text-main: #1a1c1b;
+      --text-muted: #5e6b66;
+      --shadow: 0 20px 40px rgba(0,0,0,0.06);
+      --radius-lg: 32px;
+      --radius-sm: 16px;
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-alt);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    .container { max-width: 1240px; margin: auto; padding: 0 2rem; }
+
+    /* HEADER & NAV */
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-text {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--secondary); }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 140px 0 100px;
+      background: radial-gradient(at top left, #ffffff, #eef7f2);
+      overflow: hidden;
+    }
+
+    .hero-flex {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    .hero-content { flex: 1.2; }
+    .hero-visual { flex: 0.8; text-align: center; }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+
+    .btn-primary {
+      padding: 18px 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      box-shadow: 0 10px 20px rgba(15, 61, 46, 0.2);
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(15, 61, 46, 0.3);
+      background: var(--secondary);
+    }
+
+    .hero-visual i {
+      font-size: 12rem;
+      color: #d8f3dc;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(-10px, -20px) rotate(5deg); }
+    }
+
+    /* GRID & CARDS */
+    .section { padding: 100px 0; }
+    .section-header { text-align: center; margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .section-header h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow);
+      border-color: var(--secondary);
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: #f1f8f5;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+      font-size: 1.5rem;
+    }
+
+    .card h3 { margin-bottom: 1rem; color: var(--primary); }
+    .card p { font-size: 0.95rem; color: var(--text-muted); }
+
+    /* TEAM SECTION */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .team-card {
+      background: var(--bg-surface);
+      padding: 30px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .team-card:hover { background: var(--primary); color: white; }
+    .team-card h4 { margin-bottom: 5px; }
+    .team-card span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; opacity: 0.7; }
+
+    /* JOIN FORM */
+    .join-container {
+      background: var(--primary);
+      border-radius: var(--radius-lg);
+      padding: 80px 60px;
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .join-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .join-form input, .join-form textarea {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 16px;
+      border-radius: 12px;
+      color: white;
+      font-family: inherit;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .join-form input:focus { background: rgba(255,255,255,0.2); border-color: var(--accent); }
+    .join-form ::placeholder { color: rgba(255,255,255,0.5); }
+
+    .btn-submit {
+      background: var(--accent);
+      color: var(--primary);
+      padding: 18px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    /* FOOTER */
+    footer { padding: 60px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
+
+    @media (max-width: 992px) {
+      .hero-flex, .join-container { flex-direction: column; grid-template-columns: 1fr; text-align: center; }
+      .hero-visual { display: none; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="brand">
+        <div class="brand-text">KIND KOALA <span>Ethiopia Chapter of SSC</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#activities">Activities</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#join">Join</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-flex">
+      <div class="hero-content">
+        <h1>Building a <span style="color:var(--secondary)">Kinder</span> Tomorrow.</h1>
+        <p>A community-driven student chapter dedicated to empathy, health awareness, and academic excellence across Ethiopia.</p>
+        <div class="hero-btns">
+          <a href="#join" class="btn-primary">Become a Member</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Semester in Review</h2>
+        <p>A look back at our recent milestones and impact-driven initiatives from the past few months.</p>
+      </div>
+      
+      <div class="feature-grid">
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>Foundation & Health</h3>
+          <p>Successful member registration followed by weekly Health Facts sessions. We focused on rare medical cases and interactive myth-busting during school line-ups.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <h3>Teacher Appreciation</h3>
+          <p>The "We Care Week" allowed students to give back by teaching classes and providing hydration and snacks to our dedicated educators.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-apple-whole"></i></div>
+          <h3>No Sugar Campaign</h3>
+          <p>A high-impact week promoting healthy dietary choices through daily reminders and nutritious snack alternatives throughout the campus.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-droplet"></i></div>
+          <h3>Hydration Challenge</h3>
+          <p>Encouraged the student body to swap soft drinks for water, tracking hydration counts and providing daily water facts to improve well-being.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-hospital"></i></div>
+          <h3>Outreach & Safety</h3>
+          <p>Semester break initiatives included medical institute visits and the creation of emergency contact posters for classroom morning awareness.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fa-solid fa-medal"></i></div>
+          <h3>Member Excellence</h3>
+          <p>Continuous recognition of our "Best Member of the Month" and consistent reporting to Kind Koala Ethiopia to ensure long-term growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Development Team</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card"><h4>Wabi Tafese</h4><span>Developer</span></div>
+        <div class="team-card"><h4>Beamlak Tewodros</h4><span>Developer</span></div>
+        <div class="team-card"><h4>Tirist</h4><span>IT Specialist</span></div>
+        <div class="team-card"><h4>Yeabsira Bizuayehu</h4><span>IT Specialist</span></div>
+        <div class="team-card"><h4>Kena</h4><span>IT Specialist</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" class="section">
+    <div class="container">
+      <div class="join-container">
+        <div>
+          <h2>Start Your Journey</h2>
+          <p>Join a network of passionate students making a real difference in their community. Submit your application below.</p>
+        </div>
+        <form class="join-form">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <textarea rows="4" placeholder="How do you want to contribute to our mission?"></textarea>
+          <button type="submit" class="btn-submit">Send Application</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Kind Koala Ethiopia Chapter of SSC</p>
+    <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.6;">Crafted with care by the IT Team.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.join-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you! Your application has been received by the IT Team.');
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
