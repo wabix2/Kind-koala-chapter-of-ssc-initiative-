@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kind Koala Club | Ethiopia Chapter of SSC</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0f3d2e;
+      --secondary: #2d6a4f;
+      --accent: #d4a373;
+      --bg-surface: #ffffff;
+      --bg-alt: #f1f5f3;
+      --text-main: #1a1c1b;
+      --text-muted: #5e6b66;
+      --shadow: 0 20px 40px rgba(0,0,0,0.06);
+      --radius-lg: 32px;
+      --radius-sm: 16px;
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg-alt); color: var(--text-main); line-height: 1.7; }
+    h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .container { max-width: 1240px; margin: auto; padding: 0 2rem; }
+
+    /* HEADER */
+    header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; }
+    .brand { text-decoration: none; }
+    .brand-text { font-weight: 800; font-size: 1.2rem; color: var(--primary); letter-spacing: -0.5px; }
+    .brand-text span { display: block; font-size: 0.7rem; font-weight: 600; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+    .nav-links a:hover { color: var(--secondary); }
+
+    /* HERO */
+    .hero { padding: 120px 0 80px; background: radial-gradient(at top left, #ffffff, #eef7f2); }
+    .hero-flex { display: flex; align-items: center; gap: 4rem; }
+    .hero-content { flex: 1.2; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; color: var(--primary); }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; }
+
+    /* SECTIONS */
+    .section { padding: 100px 0; }
+    .section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin: 0 auto 60px; }
+    .section-header h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .card { background: var(--bg-surface); padding: 40px; border-radius: var(--radius-lg); transition: var(--transition); border: 1px solid rgba(0,0,0,0.03); }
+    .card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
+    .card h3 { color: var(--secondary); margin-bottom: 15px; border-bottom: 2px solid var(--bg-alt); padding-bottom: 10px; }
+    .card ul { list-style: none; }
+    .card ul li { margin-bottom: 10px; font-size: 0.95rem; display: flex; gap: 10px; }
+    .card ul li i { color: var(--accent); margin-top: 5px; }
+
+    /* TEAM */
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .team-card { background: var(--bg-surface); padding: 30px; border-radius: var(--radius-sm); text-align: center; transition: var(--transition); border-bottom: 4px solid var(--accent); }
+    .team-card:hover { background: var(--primary); color: white; }
+
+    /* JOIN FORM */
+    .join-container { background: var(--primary); border-radius: var(--radius-lg); padding: 60px; color: white; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .join-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .join-form input, .join-form textarea { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 16px; border-radius: 12px; color: white; outline: none; }
+    .btn-submit { background: var(--accent); color: var(--primary); padding: 18px; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; }
+
+    footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
+
+    @media (max-width: 992px) { .hero-flex, .join-container { grid-template-columns: 1fr; text-align: center; } .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="brand"><div class="brand-text">KIND KOALA <span>Ethiopia Chapter of SSC</span></div></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#past-activities">Past Impact</a></li>
+        <li><a href="#future-plan">Future Plan</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#join">Join Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-flex">
+      <div class="hero-content">
+        <h1>Compassion in <span style="color:var(--secondary)">Action</span>.</h1>
+        <p>Official online home of the Kind Koala Club. We foster acts of kindness, health awareness, and academic support to keep our community active and organized.</p>
+        <a href="#join" class="btn-submit" style="text-decoration:none; display:inline-block; width:auto; padding: 18px 40px;">Apply to Join</a>
+      </div>
+      <div style="flex:0.8; text-align:center;"><i class="fa-solid fa-heart-pulse" style="font-size:10rem; color:var(--accent); opacity:0.2;"></i></div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Our Identity & Values</h2>
+        <p>Founded to ensure student well-being and proactive service within the school community.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3><i class="fa-solid fa-bullseye"></i> Our Mission</h3>
+          <p>To stay active and visible while helping students understand our core purpose: kindness and organization.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-gem"></i> Core Values</h3>
+          <p>Empathy, health-first living, teacher appreciation, and community cleanliness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="past-activities" class="section" style="background:#fcfdfc;">
+    <div class="container">
+      <div class="section-header">
+        <h2>First Semester Highlights</h2>
+        <p>A review of our successful initiatives from Hidar to Tir.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Hidar & Tahisas</h3>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Health Facts Wednesday: Rare medical cases</li>
+            <li><i class="fa-solid fa-check"></i> Myth-busting health sessions</li>
+            <li><i class="fa-solid fa-check"></i> "We Care Week" for Teachers (Grades 9-11)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Tir Awareness</h3>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> No Sugar Week: Promoting healthy snack alternatives</li>
+            <li><i class="fa-solid fa-check"></i> Drink Water Week: 8-cups-a-day hydration challenge</li>
+            <li><i class="fa-solid fa-check"></i> Medical Institute Visits & Health Posters</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="future-plan" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Second Semester Roadmap</h2>
+        <p>Our upcoming initiatives for the remainder of the academic year.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Yekatit (Feb/Mar)</h3>
+          <ul>
+            <li><i class="fa-solid fa-calendar"></i> Launch Tena Medhin operations</li>
+            <li><i class="fa-solid fa-calendar"></i> "We Care Week" for Librarians</li>
+            <li><i class="fa-solid fa-calendar"></i> Health Card distribution to members</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Megabit (Mar/Apr)</h3>
+          <ul>
+            <li><i class="fa-solid fa-calendar"></i> Launch Koala Bottle Bank</li>
+            <li><i class="fa-solid fa-calendar"></i> Distribute bottles to plastic collectors</li>
+            <li><i class="fa-solid fa-calendar"></i> Guest Speaker line-up session</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Miyazia (Apr/May)</h3>
+          <ul>
+            <li><i class="fa-solid fa-calendar"></i> Koala Gratitude Week: Anonymous thank-you notes</li>
+            <li><i class="fa-solid fa-calendar"></i> "We Care Week" for Gardeners & Janitors</li>
+            <li><i class="fa-solid fa-calendar"></i> Koala Care Kit distribution</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="section" style="background:white;">
+    <div class="container">
+      <div class="section-header">
+        <h2>IT Management Team</h2>
+        <p>The core group responsible for maintaining our digital visibility and operations.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card"><h4>Wabi Tafese</h4><span>Developer</span></div>
+        <div class="team-card"><h4>Beamlak Tewodros</h4><span>Developer</span></div>
+        <div class="team-card"><h4>Tirist</h4><span>IT Specialist</span></div>
+        <div class="team-card"><h4>Yeabsira Bizuayehu</h4><span>IT Specialist</span></div>
+        <div class="team-card"><h4>Kena</h4><span>IT Specialist</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" class="section">
+    <div class="container">
+      <div class="join-container">
+        <div>
+          <h2>Join the Movement</h2>
+          <p>Become a member of the Ethiopia Chapter. Fill out the official interest form to get started.</p>
+        </div>
+        <form class="join-form">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <textarea rows="4" placeholder="Why do you want to join Kind Koala Club?"></textarea>
+          <button type="submit" class="btn-submit">Submit Application</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 Kind Koala Ethiopia Chapter of SSC | Developed by the IT Team</p>
+    <p style="font-size: 0.75rem; opacity: 0.5; margin-top: 10px;">Content approved by Club Leadership [cite: 163]</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.join-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Application submitted! Our leadership team will review and contact you shortly.');
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
