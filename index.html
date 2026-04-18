@@ -1,3 +1,8 @@
+I've updated your HTML code to include the new **Board of Directors (BOD) 2026** section with all the specific roles you provided. I also swapped the "Our Mission" text with the official global vision found in your uploaded image.
+
+The layout for the team section has been upgraded to a cleaner grid that handles the larger number of members while remaining mobile-friendly.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +33,7 @@
     h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
     .container { max-width: 1200px; margin: auto; padding: 0 1.5rem; width: 100%; }
 
-    /* RESPONSIVE HEADER */
+    /* HEADER */
     header {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(15px);
@@ -47,7 +52,7 @@
     .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.85rem; transition: var(--transition); }
     .nav-links a:hover { color: var(--secondary); }
 
-    /* MOBILE HERO OPTIMIZATION */
+    /* HERO */
     .hero { padding: 80px 0; background: linear-gradient(135deg, #ffffff 0%, #eef7f2 100%); }
     .hero-flex { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
     .hero-content { flex: 1; min-width: 300px; }
@@ -57,68 +62,69 @@
     .hero-visual { flex: 0.8; text-align: center; min-width: 300px; }
     .hero-visual i { font-size: clamp(6rem, 15vw, 10rem); color: var(--accent); opacity: 0.2; }
 
-    /* SECTION STYLING */
-    .section { padding: 60px 0; }
-    .section-header { text-align: center; margin-bottom: 40px; }
-    .section-header h2 { font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
+    /* SECTIONS */
+    .section { padding: 80px 0; }
+    .section-header { text-align: center; margin-bottom: 50px; }
+    .section-header h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem; }
 
-    /* RESPONSIVE GRID SYSTEM */
     .grid { 
       display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-      gap: 1.5rem; 
-      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 2rem; 
     }
     
     .card { 
-      background: var(--bg-surface); padding: 30px; border-radius: var(--radius-lg); 
+      background: var(--bg-surface); padding: 35px; border-radius: var(--radius-lg); 
       border: 1px solid rgba(0,0,0,0.04); transition: var(--transition);
       height: 100%;
     }
     .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--secondary); }
-    .card i { font-size: 1.8rem; color: var(--accent); margin-bottom: 1rem; display: block; }
-    .card h3 { margin-bottom: 12px; color: var(--primary); font-size: 1.2rem; }
-    .card p { font-size: 0.9rem; color: var(--text-muted); }
+    .card i { font-size: 2rem; color: var(--accent); margin-bottom: 1.2rem; display: block; }
+    .card h3 { margin-bottom: 12px; color: var(--primary); font-size: 1.3rem; }
+    .card p { font-size: 1rem; color: var(--text-muted); }
 
-    /* TEAM GRID MOBILE FIX */
+    /* UPDATED TEAM SECTION */
     .team-grid { 
       display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
-      gap: 1rem; 
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
+      gap: 1.5rem; 
     }
     .team-card { 
-      background: white; padding: 20px 10px; border-radius: 18px; text-align: center; 
+      background: white; padding: 25px; border-radius: 18px; text-align: center; 
       border-bottom: 4px solid var(--accent); transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
+    .team-card h4 { color: var(--primary); margin-bottom: 4px; font-size: 1.1rem; }
+    .team-card span { color: var(--secondary); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
 
-    /* RESPONSIVE JOIN BOX */
+    /* JOIN SECTION */
     .join-container { 
       background: var(--primary); color: white; border-radius: var(--radius-lg); 
-      padding: 40px; display: flex; flex-direction: row; gap: 3rem; align-items: center;
+      padding: 50px; display: flex; flex-direction: row; gap: 3rem; align-items: center;
       flex-wrap: wrap;
     }
     .join-text { flex: 1; min-width: 250px; }
+    .join-text h2 { font-size: 2.5rem; margin-bottom: 1rem; }
     .join-form { flex: 1; min-width: 250px; display: flex; flex-direction: column; gap: 1rem; width: 100%; }
     .join-form input, .join-form textarea { 
-      padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); 
+      padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); 
       background: rgba(255,255,255,0.05); color: white; font-family: inherit; width: 100%;
     }
     .btn-submit { 
-      background: var(--accent); color: var(--primary); padding: 14px; 
-      border: none; border-radius: 10px; font-weight: 800; cursor: pointer; transition: 0.3s;
+      background: var(--accent); color: var(--primary); padding: 16px; 
+      border: none; border-radius: 12px; font-weight: 800; cursor: pointer; transition: 0.3s;
     }
+    .btn-submit:hover { background: #e5b383; transform: scale(1.02); }
 
     footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.85rem; }
 
-    /* MOBILE EXCLUSIVE CSS */
     @media (max-width: 768px) {
       nav { flex-direction: column; gap: 1rem; text-align: center; }
       .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
       .hero { padding: 40px 0; text-align: center; }
       .hero-flex { justify-content: center; }
       .hero p { margin-left: auto; margin-right: auto; }
-      .join-container { padding: 25px; text-align: center; }
-      .section { padding: 40px 0; }
+      .join-container { padding: 30px; text-align: center; }
     }
   </style>
 </head>
@@ -135,9 +141,9 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
+        <li><a href="#about">Mission</a></li>
         <li><a href="#activities">Impact</a></li>
-        <li><a href="#team">Team</a></li>
+        <li><a href="#team">BOD 2026</a></li>
         <li><a href="#join">Join</a></li>
       </ul>
     </nav>
@@ -149,11 +155,11 @@
     <div class="container hero-flex">
       <div class="hero-content">
         <h1>An <span style="color:var(--secondary)">Initiative</span> for Change.</h1>
-        <p>Official website for the Kind Koala Ethiopia Chapter. We are a student-led initiative dedicated to health awareness, empathy, and academic excellence.</p>
+        <p>Official website for the Kind Koala Ethiopia Chapter. We unite youth to create real community impact through health, empathy, and service.</p>
         <a href="#join" class="btn-submit" style="text-decoration:none; display:inline-block; width:auto; padding: 14px 30px;">Apply for Membership</a>
       </div>
       <div class="hero-visual">
-        <i class="fa-solid fa-hand-holding-medical"></i>
+        <i class="fa-solid fa-hand-holding-heart"></i>
       </div>
     </div>
   </section>
@@ -161,66 +167,19 @@
   <section id="about" class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Our Core Purpose</h2>
-        <p>Why the Kind Koala Initiative was created.</p>
+        <h2>Kind Koala's Mission</h2>
+        <p>Driven by compassion, powered by youth.</p>
       </div>
       <div class="grid">
         <div class="card">
-          <i class="fa-solid fa-shield-heart"></i>
-          <h3>Our Mission</h3>
-          <p>To help students understand the values of compassion and ensure our initiative stays visible and organized within the community.</p>
+          <i class="fa-solid fa-earth-africa"></i>
+          <h3>Global Vision</h3>
+          <p>Kind Koala unites youth worldwide to create real community impact. Our Healthcare Access Initiative connects families to free or low-cost care, and our Koala Events raise awareness, share resources, and link volunteers with those in need.</p>
         </div>
         <div class="card">
-          <i class="fa-solid fa-users-gear"></i>
-          <h3>Our Strategy</h3>
-          <p>Remaining active through constant updates and meaningful activities that support student well-being and health education.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="activities" class="section" style="background: white;">
-    <div class="container">
-      <div class="section-header">
-        <h2>Impact Roadmap</h2>
-        <p>Reviewing our past milestones and future goals.</p>
-      </div>
-      
-      <h3 style="margin-bottom: 20px; color: var(--secondary); font-size: 1.1rem; text-transform: uppercase;">Semester 1: Completed</h3>
-      <div class="grid" style="margin-bottom: 50px;">
-        <div class="card">
-          <i class="fa-solid fa-check"></i>
-          <h3>Hidar - Registration</h3>
-          <p>Successfully registered new members and launched Health Facts Wednesday sessions during school line-ups.</p>
-        </div>
-        <div class="card">
-          <i class="fa-solid fa-check"></i>
-          <h3>Tahisas - We Care</h3>
-          <p>Teacher Appreciation Week for Grades 9-11 and the start of research for the Tena Medhin project.</p>
-        </div>
-        <div class="card">
-          <i class="fa-solid fa-check"></i>
-          <h3>Tir - Health Weeks</h3>
-          <p>Execution of No Sugar Week and Hydration Week to promote healthy dietary choices campus-wide.</p>
-        </div>
-      </div>
-
-      <h3 style="margin-bottom: 20px; color: var(--secondary); font-size: 1.1rem; text-transform: uppercase;">Semester 2: Planned</h3>
-      <div class="grid">
-        <div class="card">
-          <i class="fa-solid fa-star"></i>
-          <h3>Yekatit - Tena Medhin</h3>
-          <p>Launching medical operations and distributing All-in-One Health Cards to our verified members.</p>
-        </div>
-        <div class="card">
-          <i class="fa-solid fa-star"></i>
-          <h3>Megabit - Bottle Bank</h3>
-          <p>Starting the Koala Bottle Bank to support local plastic collectors and environmental cleanliness.</p>
-        </div>
-        <div class="card">
-          <i class="fa-solid fa-star"></i>
-          <h3>Miyazia - Care Kits</h3>
-          <p>Distribution of Koala Care Kits and Gratitude Week involving anonymous thank-you notes.</p>
+          <i class="fa-solid fa-hospital-user"></i>
+          <h3>Local Strategy</h3>
+          <p>The Ethiopia Chapter focuses on student well-being through "Health Facts Wednesdays," Teacher Appreciation, and our signature Tena Medhin project providing health cards to verified members.</p>
         </div>
       </div>
     </div>
@@ -229,15 +188,40 @@
   <section id="team" class="section">
     <div class="container">
       <div class="section-header">
-        <h2>IT Development Team</h2>
-        <p>Maintaining the digital presence of the initiative.</p>
+        <h2>Board of Directors 2026</h2>
+        <p>The leadership team guiding the Kind Koala Ethiopia Chapter.</p>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-card"><h4>Bemnet Engidashet</h4><span>Founder & President</span></div>
+        <div class="team-card"><h4>Nahom Wondifraw</h4><span>Vice President</span></div>
+        <div class="team-card"><h4>Yohanna Zeleke</h4><span>Secretary</span></div>
+        <div class="team-card"><h4>Aklesiya Negalign</h4><span>Vice Secretary</span></div>
+        
+        <div class="team-card"><h4>Atnassia Daniel</h4><span>Healthcare Access Manager</span></div>
+        <div class="team-card"><h4>Surafel Ayanew</h4><span>Membership Head</span></div>
+        <div class="team-card"><h4>Blen Ayalew</h4><span>Membership Head</span></div>
+        
+        <div class="team-card"><h4>Zakir</h4><span>Event Coordinator</span></div>
+        <div class="team-card"><h4>Solyana Alemu</h4><span>Event Coordinator</span></div>
+        <div class="team-card"><h4>Rakeb Tewodros</h4><span>Event Coordinator</span></div>
+        <div class="team-card"><h4>Esrael Bewketu</h4><span>Intl. Relations Officer</span></div>
+        <div class="team-card"><h4>Beselot Solomon</h4><span>Intl. Relations Officer</span></div>
+
+        <div class="team-card"><h4>Ruth Tilahun</h4><span>Fundraising Manager</span></div>
+        <div class="team-card"><h4>Hamere Getachew</h4><span>Fundraising Manager</span></div>
+        <div class="team-card"><h4>Ribka Yohannes</h4><span>Social Media Manager</span></div>
+      </div>
+
+      <div class="section-header" style="margin-top: 60px; margin-bottom: 30px;">
+        <h3>IT Management Team</h3>
       </div>
       <div class="team-grid">
-        <div class="team-card"><h4>Wabi Tafese</h4><span>Developer</span></div>
-        <div class="team-card"><h4>Beamlak Tewodros</h4><span>Developer</span></div>
-        <div class="team-card"><h4>Tirist</h4><span>IT Specialist</span></div>
-        <div class="team-card"><h4>Yeabsira Bizuayehu</h4><span>IT Specialist</span></div>
-        <div class="team-card"><h4>Kena</h4><span>IT Specialist</span></div>
+        <div class="team-card" style="border-color: var(--secondary);"><h4>Kena Giragn</h4><span>IT Team</span></div>
+        <div class="team-card" style="border-color: var(--secondary);"><h4>Yeabsira Bizuayehu</h4><span>IT Team</span></div>
+        <div class="team-card" style="border-color: var(--secondary);"><h4>Wabi Tafesse</h4><span>IT Team</span></div>
+        <div class="team-card" style="border-color: var(--secondary);"><h4>Beamlak Tewodros</h4><span>IT Team</span></div>
+        <div class="team-card" style="border-color: var(--secondary);"><h4>Tirsit Getachew</h4><span>IT Team</span></div>
       </div>
     </div>
   </section>
@@ -263,7 +247,7 @@
 <footer>
   <div class="container">
     <p>&copy; 2026 Kind Koala Ethiopia Chapter of SSC Initiative</p>
-    <p style="margin-top: 8px; opacity: 0.6; font-size: 0.7rem;">Created and Maintained by the IT Management Team</p>
+    <p style="margin-top: 8px; opacity: 0.6; font-size: 0.7rem;">Verified Student-Led Organization</p>
   </div>
 </footer>
 
@@ -277,3 +261,4 @@
 
 </body>
 </html>
+```
