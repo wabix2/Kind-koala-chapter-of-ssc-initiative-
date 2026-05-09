@@ -23,15 +23,14 @@
     }
 
     :root {
-      --primary: #2a7f6e;      /* kind teal */
+      --primary: #2a7f6e;
       --primary-light: #e0f2ef;
       --primary-dark: #1e5f51;
-      --secondary: #f4a261;     /* warm accent */
+      --secondary: #f4a261;
       --bg-white: #ffffff;
       --bg-soft: #f9fbfd;
       --gray-100: #f3f4f6;
       --gray-300: #d1d5db;
-      --gray-600: #4b5563;
       --text-dark: #1f2937;
       --text-muted: #6b7280;
       --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
@@ -91,6 +90,7 @@
       border-radius: 12px;
       background: white;
       padding: 4px;
+      border: 1px solid var(--gray-300);
     }
     .logo-text {
       font-size: 1.25rem;
@@ -132,7 +132,6 @@
       background: var(--primary-dark) !important;
     }
 
-    /* Sections */
     section {
       padding: 5rem 0;
       border-bottom: 1px solid var(--gray-300);
@@ -142,11 +141,11 @@
     }
     .section-header h2 {
       font-size: 2rem;
-      display: inline-block;
       background: linear-gradient(135deg, var(--primary-dark), var(--primary));
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
+      display: inline-block;
     }
     .section-header .subhead {
       color: var(--text-muted);
@@ -266,7 +265,7 @@
       transform: scale(1.02);
     }
 
-    /* BOARD SECTIONS (Multiple roles) */
+    /* BOARD SECTIONS - fixed visibility */
     .board-category {
       margin-bottom: 2.5rem;
     }
@@ -279,13 +278,13 @@
     }
     .board-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1.2rem;
     }
     .board-card {
       background: white;
       border-radius: var(--radius-lg);
-      padding: 1.2rem;
+      padding: 1rem;
       text-align: center;
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--gray-300);
@@ -293,20 +292,22 @@
     }
     .board-card:hover {
       transform: translateY(-3px);
-      border-color: var(--primary-light);
+      border-color: var(--primary);
     }
     .board-name {
       font-weight: 700;
       font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 0.2rem;
     }
     .board-role {
       font-size: 0.7rem;
       color: var(--primary);
       font-weight: 600;
       text-transform: uppercase;
-      margin-top: 0.2rem;
+      letter-spacing: 0.3px;
     }
-    /* For long names, adjust */
+    /* ensure names are visible */
     .board-card p {
       font-size: 0.8rem;
       color: var(--text-muted);
@@ -402,6 +403,7 @@
       .hero-icon { font-size: 5rem; }
       .update-item { flex-direction: column; gap: 0.2rem; }
       .board-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .board-name { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -517,7 +519,7 @@
     </div>
   </section>
 
-  <!-- BOARD OF DIRECTORS - EXACT ROLES -->
+  <!-- BOARD OF DIRECTORS - EXACT ROLES (all names visible) -->
   <section id="board">
     <div class="container">
       <div class="section-header">
@@ -656,7 +658,7 @@
     }
   }
 
-  function showToast(msg, isError = false) {
+  function showToast(msg) {
     const toast = document.getElementById('toastMsg');
     const txt = document.getElementById('toastText');
     txt.innerHTML = msg;
@@ -671,7 +673,7 @@
     const name = document.getElementById('fullName').value.trim();
     const email = document.getElementById('emailAddr').value.trim();
     if (!name || !email) {
-      showToast('Please provide name and email.', true);
+      showToast('Please provide name and email.');
       return;
     }
     const submitBtn = document.getElementById('submitBtn');
