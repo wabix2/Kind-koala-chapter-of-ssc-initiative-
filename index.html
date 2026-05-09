@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
-  <!-- GSAP for smooth animations -->
+  <!-- GSAP for smooth scroll animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -23,7 +23,7 @@
     }
 
     :root {
-      --primary: #2a7f6e;      /* softer teal - kind & professional */
+      --primary: #2a7f6e;      /* kind teal */
       --primary-light: #e0f2ef;
       --primary-dark: #1e5f51;
       --secondary: #f4a261;     /* warm accent */
@@ -84,16 +84,13 @@
       gap: 0.75rem;
       cursor: pointer;
     }
-    .logo-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--primary-light);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      color: var(--primary);
+    .logo img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: white;
+      padding: 4px;
     }
     .logo-text {
       font-size: 1.25rem;
@@ -245,7 +242,7 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Campaign special card */
+    /* Campaign card */
     .campaign-card {
       background: linear-gradient(135deg, #fff7ed 0%, #ffe8e0 100%);
       border-radius: var(--radius-xl);
@@ -253,21 +250,6 @@
       margin: 2rem 0;
       border-left: 6px solid var(--secondary);
       box-shadow: var(--shadow-md);
-    }
-    .campaign-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-    .campaign-header i {
-      font-size: 2.5rem;
-      color: #d35400;
-    }
-    .campaign-title {
-      font-size: 1.8rem;
-      font-weight: 800;
     }
     .btn-campaign {
       background: #d35400;
@@ -284,36 +266,53 @@
       transform: scale(1.02);
     }
 
-    /* Board grid */
+    /* BOARD SECTIONS (Multiple roles) */
+    .board-category {
+      margin-bottom: 2.5rem;
+    }
+    .board-category h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+    }
     .board-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
     }
     .board-card {
       background: white;
       border-radius: var(--radius-lg);
-      padding: 1.5rem;
+      padding: 1.2rem;
       text-align: center;
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--gray-300);
+      transition: 0.2s;
     }
-    .board-avatar {
-      width: 70px;
-      height: 70px;
-      background: var(--primary-light);
-      border-radius: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 1.8rem;
-      font-weight: bold;
+    .board-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary-light);
+    }
+    .board-name {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .board-role {
+      font-size: 0.7rem;
       color: var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+    /* For long names, adjust */
+    .board-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
-    /* Updates timeline */
+    /* Updates */
     .timeline {
       background: white;
       border-radius: var(--radius-xl);
@@ -372,7 +371,6 @@
       cursor: pointer;
     }
 
-    /* Toast */
     .toast-notify {
       position: fixed;
       bottom: 20px;
@@ -398,10 +396,12 @@
       color: var(--text-muted);
       font-size: 0.8rem;
     }
+
     @media (max-width: 768px) {
       .container { padding: 0 1.2rem; }
       .hero-icon { font-size: 5rem; }
       .update-item { flex-direction: column; gap: 0.2rem; }
+      .board-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
     }
   </style>
 </head>
@@ -411,7 +411,8 @@
   <div class="container">
     <nav>
       <div class="logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-        <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+        <!-- Original logo from the first code -->
+        <img src="https://i.ibb.co/4RKXJpxH/logo.jpg" alt="Kind Koala Logo" onerror="this.src='https://via.placeholder.com/48x48?text=KK'">
         <div class="logo-text">KIND KOALA ETHIOPIA<br><span>CHAPTER OF SSC INITIATIVE</span></div>
       </div>
       <div class="nav-links">
@@ -465,23 +466,23 @@
     </div>
   </section>
 
-  <!-- SAVE A CHILD'S HEART CAMPAIGN (New) -->
+  <!-- SAVE A CHILD'S HEART CAMPAIGN -->
   <section id="campaign" style="background: #fffaf5;">
     <div class="container">
       <div class="campaign-card">
-        <div class="campaign-header">
-          <i class="fas fa-heartbeat"></i>
-          <h2 class="campaign-title">SAVE A CHILD'S HEART ❤️</h2>
+        <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+          <i class="fas fa-heartbeat" style="font-size: 2.2rem; color:#d35400;"></i>
+          <h2 style="font-size: 1.8rem; font-weight: 800;">SAVE A CHILD'S HEART ❤️</h2>
         </div>
-        <p style="font-size: 1.05rem; margin-bottom: 1rem;">Kind Koala Ethiopia SSC Chapter & the Medical Club of SSC are partnering with <strong>Children Heart Fund Ethiopia</strong> to support children suffering from heart disease 🏥💔</p>
-        <p style="margin-bottom: 1.2rem;">Many children are still waiting for treatment their families cannot afford. <strong>Your support can change a life ✨</strong></p>
+        <p style="font-size: 1.05rem; margin: 1rem 0;">Kind Koala Ethiopia SSC Chapter & the Medical Club of SSC are partnering with <strong>Children Heart Fund Ethiopia</strong> to support children suffering from heart disease 🏥💔</p>
+        <p>Many children are still waiting for treatment their families cannot afford. <strong>Your support can change a life ✨</strong></p>
         
         <h4 style="margin: 1.2rem 0 0.5rem;"><i class="fas fa-bolt"></i> 💥 HOW TO VOLUNTEER</h4>
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem;">
-          <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px;">📱 SMS & Telebirr donations</span>
-          <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px;">🏫 Class fundraising activities</span>
-          <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px;">📣 Social media campaigns</span>
-          <span style="background: white; padding: 0.3rem 1rem; border-radius: 40px;">👥 Join individually or in groups</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.2rem;">
+          <span style="background: white; padding:0.3rem 1rem; border-radius:40px;">📱 SMS & Telebirr donations</span>
+          <span style="background: white; padding:0.3rem 1rem; border-radius:40px;">🏫 Class fundraising activities</span>
+          <span style="background: white; padding:0.3rem 1rem; border-radius:40px;">📣 Social media campaigns</span>
+          <span style="background: white; padding:0.3rem 1rem; border-radius:40px;">👥 Join individually or in groups</span>
         </div>
 
         <h4><i class="fas fa-gift"></i> 🎁 REWARDS & IMPACT</h4>
@@ -493,7 +494,7 @@
 
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
           <a href="https://forms.gle/fCFu8pdCqdF4GURr7" target="_blank" class="btn-campaign"><i class="fas fa-hands-helping"></i> Apply here (volunteer form)</a>
-          <p style="font-weight: 700; margin-top: 0.5rem;">⏳ Deadline: <span style="color:#d35400;">May 5th</span></p>
+          <p style="font-weight: 700;">⏳ Deadline: <span style="color:#d35400;">May 5th</span></p>
         </div>
         <p style="margin-top: 1.2rem; font-style: italic;">💙 One act of kindness can give a child a future 💙</p>
       </div>
@@ -516,22 +517,90 @@
     </div>
   </section>
 
-  <!-- BOARD OF DIRECTORS (only BOD) -->
+  <!-- BOARD OF DIRECTORS - EXACT ROLES -->
   <section id="board">
     <div class="container">
       <div class="section-header">
-        <h2>Board of Directors</h2>
-        <p class="subhead">Strategic leadership team</p>
+        <h2>Leadership & Board</h2>
+        <p class="subhead">Dedicated members driving our mission</p>
       </div>
-      <div class="board-grid">
-        <div class="board-card"><div class="board-avatar">BE</div><h3>Bemnet Engidashet</h3><p style="color:var(--primary); font-weight:600;">Chairperson</p><p style="font-size:0.8rem;">Vision & partnerships</p></div>
-        <div class="board-card"><div class="board-avatar">NW</div><h3>Nahom Wondifraw</h3><p style="color:var(--primary); font-weight:600;">Vice Chair</p><p style="font-size:0.8rem;">Outreach & committees</p></div>
-        <div class="board-card"><div class="board-avatar">YZ</div><h3>Yohanna Zeleke</h3><p style="color:var(--primary); font-weight:600;">Secretary</p><p style="font-size:0.8rem;">Communications & records</p></div>
-        <div class="board-card"><div class="board-avatar">WT</div><h3>Wabi Tafesse</h3><p style="color:var(--primary); font-weight:600;">Treasurer</p><p style="font-size:0.8rem;">Budget & reporting</p></div>
-        <div class="board-card"><div class="board-avatar">BT</div><h3>Beamlak Tewodros</h3><p style="color:var(--primary); font-weight:600;">Member-at-Large</p><p style="font-size:0.8rem;">Activity planning</p></div>
-        <div class="board-card"><div class="board-avatar">AD</div><h3>Atnassia Daniel</h3><p style="color:var(--primary); font-weight:600;">Health Lead</p><p style="font-size:0.8rem;">Medical initiatives</p></div>
+
+      <!-- Executive Committee -->
+      <div class="board-category">
+        <h3>Executive Committee</h3>
+        <div class="board-grid">
+          <div class="board-card"><div class="board-name">Bemnet Engidashet</div><div class="board-role">Founder & President</div></div>
+          <div class="board-card"><div class="board-name">Nahom Wondifraw</div><div class="board-role">Vice President</div></div>
+          <div class="board-card"><div class="board-name">Yohanna Zeleke</div><div class="board-role">Secretary</div></div>
+          <div class="board-card"><div class="board-name">Aklesiya Negalign</div><div class="board-role">Vice Secretary</div></div>
+        </div>
       </div>
-      <p style="text-align: center; margin-top: 1rem;"><i class="fas fa-check-circle" style="color:var(--primary);"></i> Elected annually – all volunteer board</p>
+
+      <!-- Membership Heads -->
+      <div class="board-category">
+        <h3>Membership Heads</h3>
+        <div class="board-grid">
+          <div class="board-card"><div class="board-name">Surafel Ayanew</div><div class="board-role">Membership Head</div></div>
+          <div class="board-card"><div class="board-name">Blen Ayalew</div><div class="board-role">Membership Head</div></div>
+        </div>
+      </div>
+
+      <!-- Event Coordinators -->
+      <div class="board-category">
+        <h3>Event Coordinators</h3>
+        <div class="board-grid">
+          <div class="board-card"><div class="board-name">Zakir</div><div class="board-role">Event Coordinator</div></div>
+          <div class="board-card"><div class="board-name">Solyana Alemu</div><div class="board-role">Event Coordinator</div></div>
+          <div class="board-card"><div class="board-name">Rakeb Tewodros</div><div class="board-role">Event Coordinator</div></div>
+        </div>
+      </div>
+
+      <!-- International Relations -->
+      <div class="board-category">
+        <h3>International Relations Officers</h3>
+        <div class="board-grid">
+          <div class="board-card"><div class="board-name">Esrael Bewketu</div><div class="board-role">International Officer</div></div>
+          <div class="board-card"><div class="board-name">Beselot Solomon</div><div class="board-role">International Officer</div></div>
+        </div>
+      </div>
+
+      <!-- IT Team -->
+      <div class="board-category">
+        <h3>IT Team</h3>
+        <div class="board-grid">
+          <div class="board-card"><div class="board-name">Kena Giragn</div><div class="board-role">IT Lead</div></div>
+          <div class="board-card"><div class="board-name">Yeabsira Bizuayehu</div><div class="board-role">IT Member</div></div>
+          <div class="board-card"><div class="board-name">Wabi Tafesse</div><div class="board-role">IT Member</div></div>
+          <div class="board-card"><div class="board-name">Beamlak Tewodros</div><div class="board-role">IT Member</div></div>
+          <div class="board-card"><div class="board-name">Tirsit Getachew</div><div class="board-role">IT Member</div></div>
+        </div>
+      </div>
+
+      <!-- Fundraising Managers -->
+      <div class="board-category">
+        <h3>Fundraising Managers</h3>
+        <div class="board-grid">
+          <div class="board-card"><div class="board-name">Ruth Tilahun</div><div class="board-role">Fundraising Manager</div></div>
+          <div class="board-card"><div class="board-name">Hamere Getachew</div><div class="board-role">Fundraising Manager</div></div>
+        </div>
+      </div>
+
+      <!-- Healthcare Access Initiative -->
+      <div class="board-category">
+        <h3>Healthcare Access Initiative</h3>
+        <div class="board-grid">
+          <div class="board-card"><div class="board-name">Atnassia Daniel</div><div class="board-role">Healthcare Manager</div></div>
+        </div>
+      </div>
+
+      <!-- Social Media Managers -->
+      <div class="board-category">
+        <h3>Social Media Managers</h3>
+        <div class="board-grid">
+          <div class="board-card"><div class="board-name">Ribka Yohannes</div><div class="board-role">Social Media Manager</div></div>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem;"><i class="fas fa-check-circle" style="color:var(--primary);"></i> All members are active volunteers committed to the club's growth.</p>
     </div>
   </section>
 
@@ -545,7 +614,7 @@
       <div class="timeline">
         <div class="update-item"><div class="update-date"><i class="far fa-calendar-alt"></i> Apr 10, 2025</div><div><strong>Heart Campaign Launch Meeting</strong><br>Friday 4 PM – Library Hall. All members invited.</div></div>
         <div class="update-item"><div class="update-date"><i class="far fa-calendar-alt"></i> Apr 1, 2025</div><div><strong>Deadline Extended: Volunteer forms</strong><br>For Save a Child's Heart – apply by May 5th.</div></div>
-        <div class="update-item"><div class="update-date"><i class="far fa-calendar-alt"></i> Mar 25, 2025</div><div><strong>Board planning session</strong><br>New roadmap for Q2 includes medical outreach.</div></div>
+        <div class="update-item"><div class="update-date"><i class="far fa-calendar-alt"></i> Mar 25, 2025</div><div><strong>Board strategic meeting</strong><br>New roadmap for Q2 includes medical outreach & IT expansion.</div></div>
       </div>
     </div>
   </section>
@@ -578,7 +647,6 @@
 <div id="toastMsg" class="toast-notify"><i class="fas fa-check-circle" style="color:#2a7f6e;"></i> <span id="toastText">Message</span></div>
 
 <script>
-  // scroll helper
   function scrollToSection(id) {
     const el = document.getElementById(id);
     if (el) {
@@ -588,7 +656,6 @@
     }
   }
 
-  // Toast system
   function showToast(msg, isError = false) {
     const toast = document.getElementById('toastMsg');
     const txt = document.getElementById('toastText');
@@ -597,7 +664,7 @@
     setTimeout(() => toast.classList.remove('show'), 3500);
   }
 
-  // SIMULATED BACKEND (mock API)
+  // Simulated backend with mock API
   const form = document.getElementById('joinForm');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -636,11 +703,13 @@
   });
 
   // GSAP animations
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.from(".card", { scrollTrigger: { trigger: "#about", start: "top 85%" }, y: 40, opacity: 0, stagger: 0.12, duration: 0.6 });
-  gsap.from(".board-card", { scrollTrigger: { trigger: "#board", start: "top 85%" }, y: 30, opacity: 0, stagger: 0.1, duration: 0.5 });
-  gsap.from(".campaign-card", { scrollTrigger: { trigger: "#campaign", start: "top 80%" }, scale: 0.97, opacity: 0, duration: 0.7 });
-  gsap.from(".update-item", { scrollTrigger: { trigger: "#updates", start: "top 85%" }, x: -20, opacity: 0, stagger: 0.1 });
+  if (typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from(".card", { scrollTrigger: { trigger: "#about", start: "top 85%" }, y: 40, opacity: 0, stagger: 0.12, duration: 0.6 });
+    gsap.from(".board-card", { scrollTrigger: { trigger: "#board", start: "top 85%" }, y: 30, opacity: 0, stagger: 0.05, duration: 0.5 });
+    gsap.from(".campaign-card", { scrollTrigger: { trigger: "#campaign", start: "top 80%" }, scale: 0.97, opacity: 0, duration: 0.7 });
+    gsap.from(".update-item", { scrollTrigger: { trigger: "#updates", start: "top 85%" }, x: -20, opacity: 0, stagger: 0.1 });
+  }
 </script>
 </body>
 </html>
