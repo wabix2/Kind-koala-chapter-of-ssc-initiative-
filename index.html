@@ -5,16 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Kind Koala Ethiopia | SSC Chapter – Official Website</title>
   
-  <!-- Google Fonts + Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
-  <!-- GSAP for smooth scroll animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
   <style>
     * {
       margin: 0;
@@ -33,7 +28,7 @@
       --gray-300: #d1d5db;
       --text-dark: #1f2937;
       --text-muted: #6b7280;
-      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
       --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
       --radius-xl: 1.5rem;
       --radius-lg: 1rem;
@@ -59,7 +54,6 @@
       padding: 0 2rem;
     }
 
-    /* Header */
     header {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
@@ -153,7 +147,6 @@
       font-size: 1rem;
     }
 
-    /* Hero */
     .hero {
       padding: 5rem 0 3rem;
       background: linear-gradient(120deg, #ffffff 0%, #f8fdfb 100%);
@@ -200,10 +193,6 @@
       cursor: pointer;
       transition: 0.2s;
     }
-    .hero-cta:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
     .hero-icon {
       flex: 0.8;
       text-align: center;
@@ -211,7 +200,6 @@
       color: var(--primary-light);
     }
 
-    /* Cards */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -223,25 +211,19 @@
       border-radius: var(--radius-xl);
       padding: 1.8rem;
       box-shadow: var(--shadow-sm);
-      transition: all 0.25s ease;
       border: 1px solid var(--gray-300);
+      transition: 0.2s;
     }
     .card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-md);
-      border-color: var(--primary-light);
     }
     .card-icon {
       font-size: 2rem;
       color: var(--primary);
       margin-bottom: 1rem;
     }
-    .card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
 
-    /* Campaign card */
     .campaign-card {
       background: linear-gradient(135deg, #fff7ed 0%, #ffe8e0 100%);
       border-radius: var(--radius-xl);
@@ -258,14 +240,9 @@
       text-decoration: none;
       font-weight: 600;
       display: inline-block;
-      transition: 0.2s;
-    }
-    .btn-campaign:hover {
-      background: #b84300;
-      transform: scale(1.02);
     }
 
-    /* BOARD SECTIONS - fixed visibility */
+    /* Board - fixed visibility */
     .board-category {
       margin-bottom: 2.5rem;
     }
@@ -305,15 +282,8 @@
       color: var(--primary);
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
-    }
-    /* ensure names are visible */
-    .board-card p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
     }
 
-    /* Updates */
     .timeline {
       background: white;
       border-radius: var(--radius-xl);
@@ -332,7 +302,6 @@
       color: var(--primary);
     }
 
-    /* Join Form */
     .join-form-card {
       background: white;
       border-radius: var(--radius-xl);
@@ -357,10 +326,6 @@
       border: 1.5px solid var(--gray-300);
       font-family: 'Inter', sans-serif;
     }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
     .btn-submit {
       background: var(--primary);
       color: white;
@@ -384,7 +349,6 @@
       z-index: 1000;
       transform: translateY(150%);
       transition: 0.3s;
-      box-shadow: var(--shadow-md);
     }
     .toast-notify.show {
       transform: translateY(0);
@@ -403,7 +367,6 @@
       .hero-icon { font-size: 5rem; }
       .update-item { flex-direction: column; gap: 0.2rem; }
       .board-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-      .board-name { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -413,7 +376,6 @@
   <div class="container">
     <nav>
       <div class="logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-        <!-- Original logo from the first code -->
         <img src="https://i.ibb.co/4RKXJpxH/logo.jpg" alt="Kind Koala Logo" onerror="this.src='https://via.placeholder.com/48x48?text=KK'">
         <div class="logo-text">KIND KOALA ETHIOPIA<br><span>CHAPTER OF SSC INITIATIVE</span></div>
       </div>
@@ -429,7 +391,6 @@
 </header>
 
 <main>
-  <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
@@ -444,7 +405,6 @@
     </div>
   </section>
 
-  <!-- ABOUT + BENEFITS -->
   <section id="about">
     <div class="container">
       <div class="section-header">
@@ -468,7 +428,6 @@
     </div>
   </section>
 
-  <!-- SAVE A CHILD'S HEART CAMPAIGN -->
   <section id="campaign" style="background: #fffaf5;">
     <div class="container">
       <div class="campaign-card">
@@ -478,7 +437,6 @@
         </div>
         <p style="font-size: 1.05rem; margin: 1rem 0;">Kind Koala Ethiopia SSC Chapter & the Medical Club of SSC are partnering with <strong>Children Heart Fund Ethiopia</strong> to support children suffering from heart disease 🏥💔</p>
         <p>Many children are still waiting for treatment their families cannot afford. <strong>Your support can change a life ✨</strong></p>
-        
         <h4 style="margin: 1.2rem 0 0.5rem;"><i class="fas fa-bolt"></i> 💥 HOW TO VOLUNTEER</h4>
         <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.2rem;">
           <span style="background: white; padding:0.3rem 1rem; border-radius:40px;">📱 SMS & Telebirr donations</span>
@@ -486,14 +444,12 @@
           <span style="background: white; padding:0.3rem 1rem; border-radius:40px;">📣 Social media campaigns</span>
           <span style="background: white; padding:0.3rem 1rem; border-radius:40px;">👥 Join individually or in groups</span>
         </div>
-
         <h4><i class="fas fa-gift"></i> 🎁 REWARDS & IMPACT</h4>
         <ul style="margin: 0.8rem 0 1.5rem 1.5rem;">
           <li>🏅 Certificates for volunteers</li>
           <li>🏥 Possible visit to the treatment center</li>
           <li>💙 Deep satisfaction of saving a child’s life</li>
         </ul>
-
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
           <a href="https://forms.gle/fCFu8pdCqdF4GURr7" target="_blank" class="btn-campaign"><i class="fas fa-hands-helping"></i> Apply here (volunteer form)</a>
           <p style="font-weight: 700;">⏳ Deadline: <span style="color:#d35400;">May 5th</span></p>
@@ -503,7 +459,6 @@
     </div>
   </section>
 
-  <!-- ACTIVITIES (past + upcoming) -->
   <section id="activities">
     <div class="container">
       <div class="section-header">
@@ -519,7 +474,7 @@
     </div>
   </section>
 
-  <!-- BOARD OF DIRECTORS - EXACT ROLES (all names visible) -->
+  <!-- BOARD SECTION - ALL NAMES VISIBLE -->
   <section id="board">
     <div class="container">
       <div class="section-header">
@@ -527,86 +482,53 @@
         <p class="subhead">Dedicated members driving our mission</p>
       </div>
 
-      <!-- Executive Committee -->
-      <div class="board-category">
-        <h3>Executive Committee</h3>
-        <div class="board-grid">
-          <div class="board-card"><div class="board-name">Bemnet Engidashet</div><div class="board-role">Founder & President</div></div>
-          <div class="board-card"><div class="board-name">Nahom Wondifraw</div><div class="board-role">Vice President</div></div>
-          <div class="board-card"><div class="board-name">Yohanna Zeleke</div><div class="board-role">Secretary</div></div>
-          <div class="board-card"><div class="board-name">Aklesiya Negalign</div><div class="board-role">Vice Secretary</div></div>
-        </div>
-      </div>
+      <div class="board-category"><h3>Executive Committee</h3><div class="board-grid">
+        <div class="board-card"><div class="board-name">Bemnet Engidashet</div><div class="board-role">Founder & President</div></div>
+        <div class="board-card"><div class="board-name">Nahom Wondifraw</div><div class="board-role">Vice President</div></div>
+        <div class="board-card"><div class="board-name">Yohanna Zeleke</div><div class="board-role">Secretary</div></div>
+        <div class="board-card"><div class="board-name">Aklesiya Negalign</div><div class="board-role">Vice Secretary</div></div>
+      </div></div>
 
-      <!-- Membership Heads -->
-      <div class="board-category">
-        <h3>Membership Heads</h3>
-        <div class="board-grid">
-          <div class="board-card"><div class="board-name">Surafel Ayanew</div><div class="board-role">Membership Head</div></div>
-          <div class="board-card"><div class="board-name">Blen Ayalew</div><div class="board-role">Membership Head</div></div>
-        </div>
-      </div>
+      <div class="board-category"><h3>Membership Heads</h3><div class="board-grid">
+        <div class="board-card"><div class="board-name">Surafel Ayanew</div><div class="board-role">Membership Head</div></div>
+        <div class="board-card"><div class="board-name">Blen Ayalew</div><div class="board-role">Membership Head</div></div>
+      </div></div>
 
-      <!-- Event Coordinators -->
-      <div class="board-category">
-        <h3>Event Coordinators</h3>
-        <div class="board-grid">
-          <div class="board-card"><div class="board-name">Zakir</div><div class="board-role">Event Coordinator</div></div>
-          <div class="board-card"><div class="board-name">Solyana Alemu</div><div class="board-role">Event Coordinator</div></div>
-          <div class="board-card"><div class="board-name">Rakeb Tewodros</div><div class="board-role">Event Coordinator</div></div>
-        </div>
-      </div>
+      <div class="board-category"><h3>Event Coordinators</h3><div class="board-grid">
+        <div class="board-card"><div class="board-name">Zakir</div><div class="board-role">Event Coordinator</div></div>
+        <div class="board-card"><div class="board-name">Solyana Alemu</div><div class="board-role">Event Coordinator</div></div>
+        <div class="board-card"><div class="board-name">Rakeb Tewodros</div><div class="board-role">Event Coordinator</div></div>
+      </div></div>
 
-      <!-- International Relations -->
-      <div class="board-category">
-        <h3>International Relations Officers</h3>
-        <div class="board-grid">
-          <div class="board-card"><div class="board-name">Esrael Bewketu</div><div class="board-role">International Officer</div></div>
-          <div class="board-card"><div class="board-name">Beselot Solomon</div><div class="board-role">International Officer</div></div>
-        </div>
-      </div>
+      <div class="board-category"><h3>International Relations Officers</h3><div class="board-grid">
+        <div class="board-card"><div class="board-name">Esrael Bewketu</div><div class="board-role">International Officer</div></div>
+        <div class="board-card"><div class="board-name">Beselot Solomon</div><div class="board-role">International Officer</div></div>
+      </div></div>
 
-      <!-- IT Team -->
-      <div class="board-category">
-        <h3>IT Team</h3>
-        <div class="board-grid">
-          <div class="board-card"><div class="board-name">Kena Giragn</div><div class="board-role">IT Lead</div></div>
-          <div class="board-card"><div class="board-name">Yeabsira Bizuayehu</div><div class="board-role">IT Member</div></div>
-          <div class="board-card"><div class="board-name">Wabi Tafesse</div><div class="board-role">IT Member</div></div>
-          <div class="board-card"><div class="board-name">Beamlak Tewodros</div><div class="board-role">IT Member</div></div>
-          <div class="board-card"><div class="board-name">Tirsit Getachew</div><div class="board-role">IT Member</div></div>
-        </div>
-      </div>
+      <div class="board-category"><h3>IT Team</h3><div class="board-grid">
+        <div class="board-card"><div class="board-name">Kena Giragn</div><div class="board-role">IT Lead</div></div>
+        <div class="board-card"><div class="board-name">Yeabsira Bizuayehu</div><div class="board-role">IT Member</div></div>
+        <div class="board-card"><div class="board-name">Wabi Tafesse</div><div class="board-role">IT Member</div></div>
+        <div class="board-card"><div class="board-name">Beamlak Tewodros</div><div class="board-role">IT Member</div></div>
+        <div class="board-card"><div class="board-name">Tirsit Getachew</div><div class="board-role">IT Member</div></div>
+      </div></div>
 
-      <!-- Fundraising Managers -->
-      <div class="board-category">
-        <h3>Fundraising Managers</h3>
-        <div class="board-grid">
-          <div class="board-card"><div class="board-name">Ruth Tilahun</div><div class="board-role">Fundraising Manager</div></div>
-          <div class="board-card"><div class="board-name">Hamere Getachew</div><div class="board-role">Fundraising Manager</div></div>
-        </div>
-      </div>
+      <div class="board-category"><h3>Fundraising Managers</h3><div class="board-grid">
+        <div class="board-card"><div class="board-name">Ruth Tilahun</div><div class="board-role">Fundraising Manager</div></div>
+        <div class="board-card"><div class="board-name">Hamere Getachew</div><div class="board-role">Fundraising Manager</div></div>
+      </div></div>
 
-      <!-- Healthcare Access Initiative -->
-      <div class="board-category">
-        <h3>Healthcare Access Initiative</h3>
-        <div class="board-grid">
-          <div class="board-card"><div class="board-name">Atnassia Daniel</div><div class="board-role">Healthcare Manager</div></div>
-        </div>
-      </div>
+      <div class="board-category"><h3>Healthcare Access Initiative</h3><div class="board-grid">
+        <div class="board-card"><div class="board-name">Atnassia Daniel</div><div class="board-role">Healthcare Manager</div></div>
+      </div></div>
 
-      <!-- Social Media Managers -->
-      <div class="board-category">
-        <h3>Social Media Managers</h3>
-        <div class="board-grid">
-          <div class="board-card"><div class="board-name">Ribka Yohannes</div><div class="board-role">Social Media Manager</div></div>
-        </div>
-      </div>
-      <p style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem;"><i class="fas fa-check-circle" style="color:var(--primary);"></i> All members are active volunteers committed to the club's growth.</p>
+      <div class="board-category"><h3>Social Media Managers</h3><div class="board-grid">
+        <div class="board-card"><div class="board-name">Ribka Yohannes</div><div class="board-role">Social Media Manager</div></div>
+      </div></div>
+      <p style="text-align: center; margin-top: 1.5rem;"><i class="fas fa-check-circle" style="color:var(--primary);"></i> All members are active volunteers.</p>
     </div>
   </section>
 
-  <!-- UPDATES + NEWS -->
   <section id="updates">
     <div class="container">
       <div class="section-header">
@@ -621,7 +543,6 @@
     </div>
   </section>
 
-  <!-- JOIN FORM with backend simulation -->
   <section id="join">
     <div class="container">
       <div class="join-form-card">
@@ -666,7 +587,6 @@
     setTimeout(() => toast.classList.remove('show'), 3500);
   }
 
-  // Simulated backend with mock API
   const form = document.getElementById('joinForm');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -681,16 +601,9 @@
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
 
-    const payload = {
-      name, email, grade: document.getElementById('gradeSelect').value,
-      message: document.getElementById('motivation').value,
-      timestamp: new Date().toISOString(),
-      chapter: "Kind Koala Ethiopia"
-    };
+    const payload = { name, email, grade: document.getElementById('gradeSelect').value, message: document.getElementById('motivation').value, timestamp: new Date().toISOString() };
     try {
-      const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
-      });
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       if (res.ok) {
         showToast('✅ Application received! The board will contact you soon.');
         form.reset();
@@ -703,15 +616,6 @@
       submitBtn.innerHTML = originalText;
     }
   });
-
-  // GSAP animations
-  if (typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from(".card", { scrollTrigger: { trigger: "#about", start: "top 85%" }, y: 40, opacity: 0, stagger: 0.12, duration: 0.6 });
-    gsap.from(".board-card", { scrollTrigger: { trigger: "#board", start: "top 85%" }, y: 30, opacity: 0, stagger: 0.05, duration: 0.5 });
-    gsap.from(".campaign-card", { scrollTrigger: { trigger: "#campaign", start: "top 80%" }, scale: 0.97, opacity: 0, duration: 0.7 });
-    gsap.from(".update-item", { scrollTrigger: { trigger: "#updates", start: "top 85%" }, x: -20, opacity: 0, stagger: 0.1 });
-  }
 </script>
 </body>
 </html>
