@@ -3,20 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <!-- Basic SEO – I added description and author to help when sharing -->
+  <meta name="description" content="Official website of Kind Koala Ethiopia, the SSC chapter. Join our youth-led community service, healthcare, and environmental projects.">
+  <meta name="author" content="Wabi Tafesse, Kind Koala IT Team">
+  <meta name="keywords" content="Kind Koala, Ethiopia, SSC, charity, youth, volunteer, heart campaign">
   <title>Kind Koala Ethiopia | SSC Chapter – Official Website</title>
   
+  <!-- Preconnect for faster font loading – a small speed trick I like -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
+  <!-- Tiny koala favicon – I made it with emoji SVG so it loads instantly -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐨</text></svg>">
+  
   <style>
+    /* ===== GLOBAL RESET ===== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    /* ===== COLOUR PALETTE – I picked earthy greens and warm orange to feel kind and fresh ===== */
     :root {
       --primary: #2a7f6e;
       --primary-light: #e0f2ef;
@@ -39,9 +49,10 @@
       background: var(--bg-soft);
       color: var(--text-dark);
       line-height: 1.5;
-      scroll-behavior: smooth;
+      scroll-behavior: smooth;  /* Smooth scrolling between sections – nice UX touch */
     }
 
+    /* Headings use Jakarta Sans for a modern, friendly feel */
     h1, h2, h3, h4, .logo-text {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
@@ -54,6 +65,7 @@
       padding: 0 2rem;
     }
 
+    /* ===== STICKY HEADER – I added blur so it feels premium ===== */
     header {
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
@@ -103,6 +115,7 @@
       gap: 0.5rem;
       flex-wrap: wrap;
     }
+    /* Navigation buttons – pill-shaped for a friendly look */
     .nav-links button {
       background: transparent;
       border: none;
@@ -126,6 +139,7 @@
       background: var(--primary-dark) !important;
     }
 
+    /* ===== SECTION SPACING ===== */
     section {
       padding: 5rem 0;
       border-bottom: 1px solid var(--gray-300);
@@ -147,6 +161,7 @@
       font-size: 1rem;
     }
 
+    /* ===== HERO AREA – I wanted the first impression to be warm and inspiring ===== */
     .hero {
       padding: 5rem 0 3rem;
       background: linear-gradient(120deg, #ffffff 0%, #f8fdfb 100%);
@@ -200,6 +215,7 @@
       color: var(--primary-light);
     }
 
+    /* ===== CARDS – used for About, Activities, etc. ===== */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -224,6 +240,7 @@
       margin-bottom: 1rem;
     }
 
+    /* Campaign highlight – orange themed to stand out */
     .campaign-card {
       background: linear-gradient(135deg, #fff7ed 0%, #ffe8e0 100%);
       border-radius: var(--radius-xl);
@@ -242,6 +259,7 @@
       display: inline-block;
     }
 
+    /* ===== BOARD SECTION – clean card layout for each leadership category ===== */
     .board-category {
       margin-bottom: 2.5rem;
     }
@@ -283,6 +301,7 @@
       text-transform: uppercase;
     }
 
+    /* Timeline for updates */
     .timeline {
       background: white;
       border-radius: var(--radius-xl);
@@ -301,6 +320,7 @@
       color: var(--primary);
     }
 
+    /* ===== JOIN FORM – simple, centered, inviting ===== */
     .join-form-card {
       background: white;
       border-radius: var(--radius-xl);
@@ -336,6 +356,7 @@
       cursor: pointer;
     }
 
+    /* Toast notification – slides up from bottom, non-intrusive */
     .toast-notify {
       position: fixed;
       bottom: 20px;
@@ -353,6 +374,7 @@
       transform: translateY(0);
     }
 
+    /* ===== FOOTER – made with love, obviously ===== */
     footer {
       background: var(--gray-100);
       padding: 2rem;
@@ -371,6 +393,7 @@
       text-decoration: none;
     }
 
+    /* ===== MOBILE RESPONSIVENESS – I made sure it looks good on phones ===== */
     @media (max-width: 768px) {
       .container { padding: 0 1.2rem; }
       .hero-icon { font-size: 5rem; }
@@ -381,32 +404,37 @@
 </head>
 <body>
 
+<!-- ==================== HEADER / NAVIGATION ==================== -->
 <header>
   <div class="container">
     <nav>
-      <div class="logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+      <!-- Clicking the logo scrolls to top – simple and intuitive -->
+      <div class="logo" onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Kind Koala Ethiopia – Go to top">
         <img src="https://i.ibb.co/4RKXJpxH/logo.jpg" alt="Kind Koala Logo" onerror="this.src='https://via.placeholder.com/48x48?text=KK'">
         <div class="logo-text">KIND KOALA ETHIOPIA<br><span>CHAPTER OF SSC INITIATIVE</span></div>
       </div>
+      <!-- Navigation buttons – I used buttons instead of links so styling is easier -->
       <div class="nav-links">
-        <button onclick="scrollToSection('about')">About</button>
-        <button onclick="scrollToSection('activities')">Activities</button>
-        <button onclick="scrollToSection('board')">Board</button>
-        <button onclick="scrollToSection('updates')">Updates</button>
-        <button class="btn-join-nav" onclick="scrollToSection('join')">Join Us</button>
+        <button onclick="scrollToSection('about')" aria-label="About section">About</button>
+        <button onclick="scrollToSection('activities')" aria-label="Activities section">Activities</button>
+        <button onclick="scrollToSection('board')" aria-label="Board members section">Board</button>
+        <button onclick="scrollToSection('updates')" aria-label="Updates section">Updates</button>
+        <button class="btn-join-nav" onclick="scrollToSection('join')" aria-label="Join the club">Join Us</button>
       </div>
     </nav>
   </div>
 </header>
 
 <main>
+  <!-- ==================== HERO SECTION ==================== -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-badge"><i class="fas fa-heart"></i> Official Chapter | SSC</div>
         <h1>make <span>kindness</span> your habitat</h1>
         <p>Empowering youth, building community, and creating lasting impact across Ethiopia.</p>
-        <button class="hero-cta" onclick="scrollToSection('join')">Become a member →</button>
+        <!-- CTA button – smooth scroll to join form -->
+        <button class="hero-cta" onclick="scrollToSection('join')" aria-label="Become a member">Become a member →</button>
       </div>
       <div class="hero-icon">
         <i class="fas fa-koala"></i>
@@ -414,6 +442,7 @@
     </div>
   </section>
 
+  <!-- ==================== ABOUT SECTION ==================== -->
   <section id="about">
     <div class="container">
       <div class="section-header">
@@ -425,6 +454,7 @@
         <div class="card"><div class="card-icon"><i class="fas fa-hand-holding-heart"></i></div><h3>Values</h3><p>Integrity, kindness, local ownership. We believe small acts create massive change.</p></div>
         <div class="card"><div class="card-icon"><i class="fas fa-seedling"></i></div><h3>Origin</h3><p>Founded by SSC students in 2023, now an officially recognized chapter with active programs year-round.</p></div>
       </div>
+      <!-- Highlighted benefits – I wanted this to feel like a friendly invitation -->
       <div style="background: var(--primary-light); border-radius: 1.5rem; padding: 1.5rem; margin-top: 1rem;">
         <h4 style="color: var(--primary-dark);">✨ Why join? – Benefits of being a member</h4>
         <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.8rem;">
@@ -437,6 +467,8 @@
     </div>
   </section>
 
+  <!-- ==================== CAMPAIGN SECTION – SAVE A CHILD'S HEART ==================== -->
+  <!-- I gave this its own style because it’s our biggest active project right now -->
   <section id="campaign" style="background: #fffaf5;">
     <div class="container">
       <div class="campaign-card">
@@ -460,7 +492,7 @@
           <li>💙 Deep satisfaction of saving a child’s life</li>
         </ul>
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
-          <a href="https://forms.gle/fCFu8pdCqdF4GURr7" target="_blank" class="btn-campaign"><i class="fas fa-hands-helping"></i> Apply here (volunteer form)</a>
+          <a href="https://forms.gle/fCFu8pdCqdF4GURr7" target="_blank" class="btn-campaign" aria-label="Apply to volunteer for Save a Child's Heart"><i class="fas fa-hands-helping"></i> Apply here (volunteer form)</a>
           <p style="font-weight: 700;">⏳ Deadline: <span style="color:#d35400;">May 5th</span></p>
         </div>
         <p style="margin-top: 1.2rem; font-style: italic;">💙 One act of kindness can give a child a future 💙</p>
@@ -468,6 +500,7 @@
     </div>
   </section>
 
+  <!-- ==================== ACTIVITIES SECTION ==================== -->
   <section id="activities">
     <div class="container">
       <div class="section-header">
@@ -483,6 +516,8 @@
     </div>
   </section>
 
+  <!-- ==================== BOARD / LEADERSHIP SECTION ==================== -->
+  <!-- I structured this by department so it's easy to update when roles change -->
   <section id="board">
     <div class="container">
       <div class="section-header">
@@ -490,6 +525,7 @@
         <p class="subhead">Dedicated members driving our mission</p>
       </div>
 
+      <!-- Executive Committee -->
       <div class="board-category"><h3>Executive Committee</h3><div class="board-grid">
         <div class="board-card"><div class="board-name">Bemnet Engidashet</div><div class="board-role">Founder & President</div></div>
         <div class="board-card"><div class="board-name">Nahom Wondifraw</div><div class="board-role">Vice President</div></div>
@@ -497,39 +533,47 @@
         <div class="board-card"><div class="board-name">Aklesiya Negalign</div><div class="board-role">Vice Secretary</div></div>
       </div></div>
 
+      <!-- Membership Heads -->
       <div class="board-category"><h3>Membership Heads</h3><div class="board-grid">
         <div class="board-card"><div class="board-name">Surafel Ayanew</div><div class="board-role">Membership Head</div></div>
         <div class="board-card"><div class="board-name">Blen Ayalew</div><div class="board-role">Membership Head</div></div>
       </div></div>
 
+      <!-- Event Coordinators -->
       <div class="board-category"><h3>Event Coordinators</h3><div class="board-grid">
         <div class="board-card"><div class="board-name">Zakir</div><div class="board-role">Event Coordinator</div></div>
         <div class="board-card"><div class="board-name">Solyana Alemu</div><div class="board-role">Event Coordinator</div></div>
         <div class="board-card"><div class="board-name">Rakeb Tewodros</div><div class="board-role">Event Coordinator</div></div>
       </div></div>
 
+      <!-- International Relations Officers -->
       <div class="board-category"><h3>International Relations Officers</h3><div class="board-grid">
         <div class="board-card"><div class="board-name">Esrael Bewketu</div><div class="board-role">International Officer</div></div>
         <div class="board-card"><div class="board-name">Beselot Solomon</div><div class="board-role">International Officer</div></div>
       </div></div>
 
+      <!-- IT Team – here’s where I (Wabi Tafesse) come in 😎 -->
       <div class="board-category"><h3>IT Team</h3><div class="board-grid">
         <div class="board-card"><div class="board-name">Kena Giragn</div><div class="board-role">IT Lead</div></div>
         <div class="board-card"><div class="board-name">Yeabsira Bizuayehu</div><div class="board-role">IT Member</div></div>
+        <!-- That’s me! Building this website was a team effort -->
         <div class="board-card"><div class="board-name">Wabi Tafesse</div><div class="board-role">IT Member</div></div>
         <div class="board-card"><div class="board-name">Beamlak Tewodros</div><div class="board-role">IT Member</div></div>
         <div class="board-card"><div class="board-name">Tirsit Getachew</div><div class="board-role">IT Member</div></div>
       </div></div>
 
+      <!-- Fundraising Managers -->
       <div class="board-category"><h3>Fundraising Managers</h3><div class="board-grid">
         <div class="board-card"><div class="board-name">Ruth Tilahun</div><div class="board-role">Fundraising Manager</div></div>
         <div class="board-card"><div class="board-name">Hamere Getachew</div><div class="board-role">Fundraising Manager</div></div>
       </div></div>
 
+      <!-- Healthcare Access Initiative -->
       <div class="board-category"><h3>Healthcare Access Initiative</h3><div class="board-grid">
         <div class="board-card"><div class="board-name">Atnassia Daniel</div><div class="board-role">Healthcare Manager</div></div>
       </div></div>
 
+      <!-- Social Media Managers -->
       <div class="board-category"><h3>Social Media Managers</h3><div class="board-grid">
         <div class="board-card"><div class="board-name">Ribka Yohannes</div><div class="board-role">Social Media Manager</div></div>
       </div></div>
@@ -537,6 +581,7 @@
     </div>
   </section>
 
+  <!-- ==================== UPDATES & TIMELINE ==================== -->
   <section id="updates">
     <div class="container">
       <div class="section-header">
@@ -551,26 +596,31 @@
     </div>
   </section>
 
+  <!-- ==================== JOIN FORM SECTION ==================== -->
+  <!-- I kept the form simple – name, email, grade, motivation. No payment needed. -->
   <section id="join">
     <div class="container">
       <div class="join-form-card">
         <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Join the club</h3>
         <p style="color: var(--text-muted); margin-bottom: 1.5rem;">No fees, just compassion. Fill the form – we’ll reach out in 3-5 days.</p>
+        <!-- The form uses a demo endpoint for now; replace with a real backend when ready -->
         <form id="joinForm">
-          <div class="form-group"><label>Full name *</label><input type="text" id="fullName" required></div>
-          <div class="form-group"><label>Email *</label><input type="email" id="emailAddr" required></div>
-          <div class="form-group"><label>Grade / Role</label><select id="gradeSelect"><option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option><option>Teacher/Staff</option></select></div>
-          <div class="form-group"><label>Why do you want to join?</label><textarea id="motivation" rows="3"></textarea></div>
-          <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paw"></i> Send application</button>
+          <div class="form-group"><label for="fullName">Full name *</label><input type="text" id="fullName" required></div>
+          <div class="form-group"><label for="emailAddr">Email *</label><input type="email" id="emailAddr" required></div>
+          <div class="form-group"><label for="gradeSelect">Grade / Role</label><select id="gradeSelect"><option>Grade 9</option><option>Grade 10</option><option>Grade 11</option><option>Grade 12</option><option>Teacher/Staff</option></select></div>
+          <div class="form-group"><label for="motivation">Why do you want to join?</label><textarea id="motivation" rows="3"></textarea></div>
+          <button type="submit" class="btn-submit" id="submitBtn" aria-label="Send application to join"><i class="fas fa-paw"></i> Send application</button>
         </form>
       </div>
     </div>
   </section>
 </main>
 
+<!-- ==================== FOOTER ==================== -->
 <footer>
   <div class="container">
-    <p>© 2026 Kind Koala Ethiopia Chapter of SSC — All content approved by Board</p>
+    <!-- Copyright year updates automatically, so we never look outdated -->
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Kind Koala Ethiopia Chapter of SSC — All content approved by Board</p>
     <div class="footer-dev">
       Developed by <strong>Wabi Tafesse</strong> (Lead Developer) & <strong>Beamlak Tewodros</strong> (Assistant Developer)<br>
       Contact: <a href="mailto:wabitafese9@gmail.com">wabitafese9@gmail.com</a>
@@ -579,9 +629,21 @@
   </div>
 </footer>
 
-<div id="toastMsg" class="toast-notify"><i class="fas fa-check-circle" style="color:#2a7f6e;"></i> <span id="toastText">Message</span></div>
+<!-- Toast notification – I use it to give friendly feedback after form submit -->
+<div id="toastMsg" class="toast-notify" aria-live="polite"><i class="fas fa-check-circle" style="color:#2a7f6e;"></i> <span id="toastText">Message</span></div>
 
+<!-- ==================== SCRIPTS ==================== -->
 <script>
+  /*
+   * I wrote these JavaScript functions to handle smooth scrolling,
+   * toast notifications, and the join form submission.
+   * They're simple, but they do the job well.
+   */
+
+  /**
+   * Smoothly scroll to a section, accounting for the fixed header height.
+   * I set offset to 80px so the title isn’t hidden under the nav.
+   */
   function scrollToSection(id) {
     const el = document.getElementById(id);
     if (el) {
@@ -591,6 +653,9 @@
     }
   }
 
+  /**
+   * Show a temporary toast message. I use it for form feedback.
+   */
   function showToast(msg) {
     const toast = document.getElementById('toastMsg');
     const txt = document.getElementById('toastText');
@@ -599,28 +664,47 @@
     setTimeout(() => toast.classList.remove('show'), 3500);
   }
 
+  // ===== JOIN FORM HANDLING =====
   const form = document.getElementById('joinForm');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = document.getElementById('fullName').value.trim();
     const email = document.getElementById('emailAddr').value.trim();
+    
+    // Basic validation – name and email are required
     if (!name || !email) {
       showToast('Please provide name and email.');
       return;
     }
+
     const submitBtn = document.getElementById('submitBtn');
     const originalText = submitBtn.innerHTML;
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
 
-    const payload = { name, email, grade: document.getElementById('gradeSelect').value, message: document.getElementById('motivation').value, timestamp: new Date().toISOString() };
+    // Prepare data (even though the demo API doesn't store it, the structure is ready)
+    const payload = {
+      name,
+      email,
+      grade: document.getElementById('gradeSelect').value,
+      message: document.getElementById('motivation').value,
+      timestamp: new Date().toISOString()
+    };
+
+    // For now, I'm using a placeholder API to simulate submission.
+    // TODO: Replace with our real backend when it's ready.
     try {
-      const res = await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
       if (res.ok) {
         showToast('✅ Application received! The board will contact you soon.');
         form.reset();
       } else throw new Error();
     } catch (err) {
+      // Friendly fallback if the demo API fails (e.g. offline)
       showToast('🌿 Demo mode: your interest is saved. Welcome to Kind Koala!');
       form.reset();
     } finally {
